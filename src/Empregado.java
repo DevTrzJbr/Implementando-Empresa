@@ -14,23 +14,23 @@ public class Empregado extends Pessoa {
     // fonte: https://info.portaldasfinancas.gov.pt/pt/informacao_fiscal/codigos_tributarios/cirs_rep/Pages/irs68.aspx
     public float calcularSalario() {
 
-        if (salarioBase >= 7112) {
+        if (salarioBase <= 7112) {
             iRS = 0.145f;
-        } else if (salarioBase >= 10732) {
+        } else if (salarioBase <= 10732) {
             iRS = 0.23f;
-        } else if (salarioBase >= 20322) {
+        } else if (salarioBase <= 20322) {
             iRS = 0.28f;
-        } else if (salarioBase >= 25075) {
+        } else if (salarioBase <= 25075) {
             iRS = 0.35f;
-        } else if (salarioBase >= 36967) {
+        } else if (salarioBase <= 36967) {
             iRS = 0.37f;
-        } else if (salarioBase >= 80882) {
+        } else if (salarioBase <= 80882) {
             iRS = 0.45f;
         } else {
             iRS = 0.48f;
         }
 
-        return this.salario = this.salarioBase * 1 - this.iRS;
+        return this.salario = this.salarioBase * (1 - this.iRS);
     }
     
     public int getNumeroSeccao() {
@@ -59,6 +59,7 @@ public class Empregado extends Pessoa {
 
 
     public float getSalario() {
+        calcularSalario();
         return this.salario;
     }
 
