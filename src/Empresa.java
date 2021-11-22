@@ -59,6 +59,19 @@ public class Empresa {
             }
         }
     }
+
+    public void mostraEmpregados() {
+        System.out.println("-------LISTA DE EMPREGADOS-------");
+
+        if (empregados.isEmpty()) {
+            System.out.println("Lista vazia");
+        } else {
+            for (Empregado listaEmpregado : empregados) {
+                System.out.println(listaEmpregado.getNome());
+            }
+        }
+    }
+
     // Testes
     private List<Fornecedor> fornecedores = new ArrayList<>();
     
@@ -66,6 +79,13 @@ public class Empresa {
         fornecedores.add(new Fornecedor("João", 12312312300L, 19, 20000, 800));
         fornecedores.add(new Fornecedor("Yuri", 32132132101L, 19, 50000, 2000));
         fornecedores.add(new Fornecedor("Pedro", 13213213200L, 18, 30000, 1500));
+    }
+
+    private List<Empregado> empregados = new ArrayList<>();
+
+    public void empregado() {
+        empregados.add(new Empregado("Andre Prado", 1234, 20, 0101, 6000));
+        empregados.add(new Empregado("Andre Meloti", 1234, 20, 0101, 6000));
     }
     public static void main(String[] args) throws Exception {
         System.out.println("Hello, World!");

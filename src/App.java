@@ -4,5 +4,8 @@ public class App {
 
         c1.fornecedor();
         c1.mostraFornecedores();
+
+        c1.empregado();
+        c1.mostraEmpregados();
     }   
 }
