@@ -2,11 +2,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Empresa {
-
+    
     private String nome;
     private int dataFundacao;
     private CodigoPostal cp;
-
+    
+    private List<Fornecedor> fornecedores = new ArrayList<>();
+    private List<Empregado> empregados = new ArrayList<>();
 
     public String getNome() {
         return this.nome;
@@ -67,13 +69,12 @@ public class Empresa {
             System.out.println("Lista vazia");
         } else {
             for (Empregado listaEmpregado : empregados) {
-                System.out.println(listaEmpregado.getNome());
+                System.out.printf("Nome: %s | Matricula: %d | Salario Bruto: R$%.2f | Salário Liquido: R$%.2f\n", listaEmpregado.getNome(), listaEmpregado.getNumeroSeccao(), listaEmpregado.getSalarioBase(), listaEmpregado.getSalario());
             }
         }
     }
 
     // Testes
-    private List<Fornecedor> fornecedores = new ArrayList<>();
     
     public void fornecedor() {
         fornecedores.add(new Fornecedor("João", 12312312300L, 19, 20000, 800));
@@ -81,11 +82,9 @@ public class Empresa {
         fornecedores.add(new Fornecedor("Pedro", 13213213200L, 18, 30000, 1500));
     }
 
-    private List<Empregado> empregados = new ArrayList<>();
-
     public void empregado() {
-        empregados.add(new Empregado("Andre Prado", 1234, 20, 0101, 6000));
-        empregados.add(new Empregado("Andre Meloti", 1234, 20, 0101, 6000));
+        empregados.add(new Empregado("Andre Prado", 1234, 20, 101, 6000));
+        empregados.add(new Empregado("Andre Meloti", 2425, 12, 0101, 400));
     }
     public static void main(String[] args) throws Exception {
         System.out.println("Hello, World!");
