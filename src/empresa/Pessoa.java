@@ -1,16 +1,35 @@
+package empresa;
+
+import java.util.HashMap;
+import java.util.Map;
+
 public class Pessoa {
-    private String nome;
-    private long contribuinte;
-    private int idade;
-    public CodigoPostal cp;
+    protected String nome;
+    protected long contribuinte;
+    protected int idade;
+    protected CodigoPostal cp;
+    protected Map <String, CodigoPostal> mapCp = new HashMap<>();
 
-
+    public Pessoa() {
+    }
+    
     public Pessoa(String nome, long contribuinte, int idade) {
         this.nome = nome;
         this.contribuinte = contribuinte;
         this.idade = idade;
     }
-
+    
+    public void inserir(String nome, CodigoPostal cp){
+        mapCp.put(nome, cp);
+    }
+    
+    public void buscarCp(String contribuinte){
+        mapCp.get(contribuinte).mostraCp();
+    }
+    
+    public void remover(String nome){
+        mapCp.remove(nome);
+    }
 
     public String getNome() {
         return this.nome;
