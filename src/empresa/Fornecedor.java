@@ -1,13 +1,15 @@
+package empresa;
+
 public class Fornecedor extends Pessoa {
     private float plafond;
     private float valorEmDivida;    
 
-    public Fornecedor(String nome, long contribuinte, int idade, float plafond, float valorEmDivida) {
+    public Fornecedor(String nome, long contribuinte, int idade, float plafond) {
         super(nome, contribuinte, idade);
         this.plafond = plafond;
         this.valorEmDivida = valorEmDivida;
     }
-
+    
     public float getPlafond() {
         return this.plafond;
     }

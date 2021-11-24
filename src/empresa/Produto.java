@@ -1,14 +1,10 @@
-
+package empresa;
 
 public class Produto {
-    String designacao;
-    float precoVendaPublico;
-    int stock;
-
-    public void mostrar() {
-
-    }
-
+    private String designacao;
+    private float precoVendaPublico;
+    private int stock;
+    
     public String getDesignacao() {
         return this.designacao;
     }
@@ -32,5 +28,17 @@ public class Produto {
     public void setStock(int stock) {
         this.stock = stock;
     }
+    
+    public Produto(){
+        
+    }
+    
+    public Produto(String designacao, float precoVendaPublico) {
+        this.designacao = designacao;
+        this.precoVendaPublico = precoVendaPublico;
+        
+    }
+    
+    
 
 }

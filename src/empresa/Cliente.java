@@ -1,7 +1,14 @@
+package empresa;
+
 public class Cliente extends Pessoa {
     private float plafond; // teto (limite crédito)
     private float valorEmDivida;
     private float saldo;
+    
+    public Cliente(String nome, long contribuinte, int idade, float plafond) {
+        super(nome, contribuinte, idade);
+        this.plafond = plafond;
+    }
     
     public Cliente(String nome, long contribuinte, int idade, float plafond, float valorEmDivida) {
         super(nome, contribuinte, idade);
