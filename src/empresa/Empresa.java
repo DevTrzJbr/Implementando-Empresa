@@ -378,7 +378,8 @@ public class Empresa {
             System.out.println("O estoque está vazio.");
         else{
             for (Produto p: listaProdutos){
-                if (p.getDesignacao().equals(designacao)) estoque++;            
+                if (p.getDesignacao().equals(designacao)) 
+                    estoque++;            
             }
             if (estoque == 0) 
                 System.out.println("Não há estoque desse produto na loja.");
