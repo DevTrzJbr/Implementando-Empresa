@@ -26,7 +26,8 @@ public class Empresa {
     }
     
     public void addPessoas() {
-        getListaClientes().add(new Cliente("Anton Tchekhov", 21001, 73, 10000));
+
+        getListaClientes().add(new Cliente("Anton Tchekhov", 21001, 73, 10000, new CodigoPostal(12345, 123)));
         getListaClientes().add(new Cliente("Fiódor Dostoiévski", 21002, 84, 10000));
         getListaClientes().add(new Cliente("Homero", 21003, 99, 10000));
         getListaClientes().add(new Cliente("Virgílio", 21004, 71, 10000));
@@ -151,7 +152,7 @@ public class Empresa {
  
     // CLIENTES
     public void inserirCliente (){
-        String nome, str;
+        String nome;
         long contribuinte;
         int idade, indicativo, extensao;
         float plafond;
@@ -178,28 +179,42 @@ public class Empresa {
                     break;
             }
         }
-        str = contribuinte+"";
-        p.inserir(str, new CodigoPostal(indicativo, extensao));
-        getListaClientes().add(new Cliente(nome, contribuinte, idade, plafond));
+
+        getListaClientes().add(new Cliente(nome, contribuinte, idade, plafond, new CodigoPostal(indicativo, extensao)));
         System.out.println("Novo cliente registrado.");
     }
      
     public void buscarCliente(){
-        String str;
         long contribuinte;
         System.out.println("Digite o número de contribuinte do cliente: ");
         contribuinte = sc.nextLong();
         
         for (Cliente c: listaClientes){
             if (c.getContribuinte() == contribuinte){
-                str = c.getContribuinte()+"";
+                System.out.println("Nome: "+ c.getNome());
+                System.out.println("Idade: "+ c.getIdade());
+                System.out.println("Teto de créditos (plafond): R$ "+ c.getPlafond());
+                System.out.println("N° contribuinte: "+ c.getContribuinte());
+                System.out.println("Valor em dívida: R$ "+ c.getValorEmDivida());
+                System.out.print("CEP: "+ c.getCp()); 
+                System.out.println("");
+                break;
+            }
+        }
+        
+    }
+       
+    public void buscarClienteTeste(long contribuinte){
+        System.out.println("Digite o número de contribuinte do cliente: ");
+        
+        for (Cliente c: listaClientes){
+            if (c.getContribuinte() == contribuinte){
                 System.out.println("Nome: "+ c.getNome());
                 System.out.println("Idade: "+ c.getIdade());
                 System.out.println("Teto de créditos (plafond): R$ "+ c.getPlafond());
                 System.out.println("N° contribuinte: "+ c.getContribuinte());
                 System.out.println("Valor em dívida: R$ "+ c.getValorEmDivida());
                 System.out.print("CEP: " ); 
-                p.buscarCp(str);
                 System.out.println("");
                 break;
             }
@@ -325,21 +340,22 @@ public class Empresa {
                 System.out.println("Numero de Seccão: "+ e.getNumeroSeccao());
                 System.out.println("Nome: "+ e.getNome());
                 System.out.println("Idade: "+ e.getIdade());
-                System.out.println("Salário base: "+ e.getSalarioBase());
-                System.out.println("Salário: "+ e.getSalario());
+                System.out.printf("Salário base: R$%.2f\n", e.getSalarioBase());
+                System.out.printf("Salário:      R$%.2f\n", e.getSalario());
                 System.out.println("N° contribuinte: "+ e.getContribuinte());
-                System.out.println("iRS: "+ e.getIRS());
+                System.out.printf("iRS: %.1f%%\n", e.getIRS()*100);
                 vazio = false;
                 break;
             }
         }
         if (vazio == true) {
-            System.out.println("Lista de empregados vazia!\n");
+            System.out.println("Empregado não encontrado!\n");
         }
     }
     
     public void removerEmpregado (){
         int numeroSeccao;
+        boolean encontrado = false;
         System.out.println("Digite o número de seccão do empregado: ");
         numeroSeccao = sc.nextInt();
         
@@ -347,10 +363,12 @@ public class Empresa {
             if (e.getNumeroSeccao() == numeroSeccao){
                 listaEmpregados.remove(e);
                 System.out.println("Empregado n° seccão "+ e.getContribuinte()+" removido.");
+                encontrado = true;
                 break;
             }
         }
-        System.out.println("Empregado não encontrado!\n");
+        if (encontrado == false)
+            System.out.println("Empregado não encontrado!\n");
     }
     
     public void mostraAllEmpregados() {
@@ -359,7 +377,7 @@ public class Empresa {
         else{
             for (Empregado e: listaEmpregados){
                 // System.out.println("< Nome: "+e.getNome()+" | Nº contribuinte: "+ e.getContribuinte() +" | Nº seccão: "+ e.getNumeroSeccao()+" | Idade: "+ e.getIdade() +" | Salário: "+ e.getSalario() +" | iRS: "+ e.getIRS() +" >");
-                System.out.printf("< Nome: %s| N° CPF: %d | N° secção: %d | Idade: %d | Salário: R$%.2f | IRS: %.0f%% >\n",e.getNome(),e.getContribuinte(),  e.getNumeroSeccao(), e.getIdade(), e.getSalario(), e.getIRS() * 100 );
+                System.out.printf("< Nome: %s| N° CPF: %d | N° secção: %d | Idade: %d | Salário: R$%.2f | IRS: %.1f%% >\n",e.getNome(),e.getContribuinte(),  e.getNumeroSeccao(), e.getIdade(), e.getSalario(), e.getIRS() * 100 );
             }
         }
     }
