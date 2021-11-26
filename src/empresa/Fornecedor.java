@@ -10,6 +10,12 @@ public class Fornecedor extends Pessoa {
         this.valorEmDivida = valorEmDivida;
     }
     
+    public Fornecedor(String nome, long contribuinte, int idade, float plafond, CodigoPostal cp) {
+        super(nome, contribuinte, idade, cp);
+        this.plafond = plafond;
+        this.valorEmDivida = valorEmDivida;
+    }
+    
     public float getPlafond() {
         return this.plafond;
     }

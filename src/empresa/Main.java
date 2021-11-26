@@ -16,7 +16,7 @@ public class Main {
         empresa.addPessoas();
         empresa.addProdutos();
     
-        empresa.buscarClienteTeste(21001);
-        // empresa.menu();
+        //empresa.buscarClienteTeste(21001);
+        empresa.menu();
     }
 }

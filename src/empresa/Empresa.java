@@ -27,26 +27,26 @@ public class Empresa {
     
     public void addPessoas() {
 
-        getListaClientes().add(new Cliente("Anton Tchekhov", 21001, 73, 10000, new CodigoPostal(12345, 123)));
-        getListaClientes().add(new Cliente("Fiódor Dostoiévski", 21002, 84, 10000));
-        getListaClientes().add(new Cliente("Homero", 21003, 99, 10000));
-        getListaClientes().add(new Cliente("Virgílio", 21004, 71, 10000));
-        getListaClientes().add(new Cliente("Marco Cícero", 21005, 69, 10000));
-        getListaClientes().add(new Cliente("Liev Tolstói", 21006, 75, 10000));
+        getListaClientes().add(new Cliente("Anton Tchekhov", 21001, 73, 10000, new CodigoPostal(24000, 123)));
+        getListaClientes().add(new Cliente("Fiódor Dostoiévski", 21002, 84, 10000, new CodigoPostal(29685, 456)));
+        getListaClientes().add(new Cliente("Homero", 21003, 99, 10000, new CodigoPostal(42000, 427)));
+        getListaClientes().add(new Cliente("Virgílio", 21004, 71, 10000, new CodigoPostal(40100, 346)));
+        getListaClientes().add(new Cliente("Marco Cícero", 21005, 69, 10000, new CodigoPostal(67500, 300)));
+        getListaClientes().add(new Cliente("Liev Tolstói", 21006, 75, 10000, new CodigoPostal(45500, 630)));
         
         
-        getListaFornecedores().add(new Fornecedor("Sebastião do Mato", 2101, 44, 20000));
-        getListaFornecedores().add(new Fornecedor("Afroldo Caseiro", 2102, 38, 20000));
-        getListaFornecedores().add(new Fornecedor("Jeremias Pombal", 2103, 51, 20000));
+        getListaFornecedores().add(new Fornecedor("Sebastião do Mato", 2101, 44, 20000, new CodigoPostal(14444, 408)));
+        getListaFornecedores().add(new Fornecedor("Afroldo Caseiro", 2102, 38, 20000, new CodigoPostal(14000, 107)));
+        getListaFornecedores().add(new Fornecedor("Jeremias Pombal", 2103, 51, 20000, new CodigoPostal(80800, 860)));
         
-        getListaEmpregados().add(new Empregado("Luís de Camões", 2111, 56, 1524, 23245.83f));
-        getListaEmpregados().add(new Empregado("Gustavo Corção", 2112, 81, 1896, 19432.24f));
-        getListaEmpregados().add(new Empregado("Machado de Assis", 2113, 69, 1839, 64521.6f));
-        getListaEmpregados().add(new Empregado("Carlos Gomes", 2114, 60, 1836, 30824.05f));
-        getListaEmpregados().add(new Empregado("Aleijadinho", 2115, 76, 1738, 97245.93f));
-        getListaEmpregados().add(new Empregado("Cecília Meireles", 2116, 63, 1901, 29644.70f));
-        getListaEmpregados().add(new Empregado("Heitor Villa-Lobos", 2116, 72, 1887, 71567.81f));
-        getListaEmpregados().add(new Empregado("Platão", 2116, 80, 348, 101843.12f));
+        getListaEmpregados().add(new Empregado("Luís de Camões", 2111, 56, 1524, 23245.83f, new CodigoPostal(29115, 100)));
+        getListaEmpregados().add(new Empregado("Gustavo Corção", 2112, 81, 1896, 19432.24f, new CodigoPostal(23000, 300)));
+        getListaEmpregados().add(new Empregado("Machado de Assis", 2113, 69, 1839, 64521.6f, new CodigoPostal(25000, 350)));
+        getListaEmpregados().add(new Empregado("Carlos Gomes", 2114, 60, 1836, 30824.05f, new CodigoPostal(65500, 880)));
+        getListaEmpregados().add(new Empregado("Aleijadinho", 2115, 76, 1738, 97245.93f, new CodigoPostal(39050, 500)));
+        getListaEmpregados().add(new Empregado("Cecília Meireles", 2116, 63, 1901, 29644.70f, new CodigoPostal(25600, 640)));
+        getListaEmpregados().add(new Empregado("Heitor Villa-Lobos", 2116, 72, 1887, 71567.81f, new CodigoPostal(24700, 740)));
+        getListaEmpregados().add(new Empregado("Platão", 2116, 80, 348, 101843.12f, new CodigoPostal(94005, 250)));
     }
     
     public void addProdutos(){
@@ -133,11 +133,9 @@ public class Empresa {
                         System.out.println("Designação: "+ p.getDesignacao() +" Preço: R$ "+ p.getPrecoVendaPublico() +" Estoque: "+ p.getStock());
                         break;
                     }
-                        
                 }
             }
         }
-
     }
     
     public void mostraAllProdutos() {
@@ -182,6 +180,7 @@ public class Empresa {
 
         getListaClientes().add(new Cliente(nome, contribuinte, idade, plafond, new CodigoPostal(indicativo, extensao)));
         System.out.println("Novo cliente registrado.");
+        
     }
      
     public void buscarCliente(){
@@ -196,26 +195,8 @@ public class Empresa {
                 System.out.println("Teto de créditos (plafond): R$ "+ c.getPlafond());
                 System.out.println("N° contribuinte: "+ c.getContribuinte());
                 System.out.println("Valor em dívida: R$ "+ c.getValorEmDivida());
-                System.out.print("CEP: "+ c.getCp()); 
-                System.out.println("");
-                break;
-            }
-        }
-        
-    }
-       
-    public void buscarClienteTeste(long contribuinte){
-        System.out.println("Digite o número de contribuinte do cliente: ");
-        
-        for (Cliente c: listaClientes){
-            if (c.getContribuinte() == contribuinte){
-                System.out.println("Nome: "+ c.getNome());
-                System.out.println("Idade: "+ c.getIdade());
-                System.out.println("Teto de créditos (plafond): R$ "+ c.getPlafond());
-                System.out.println("N° contribuinte: "+ c.getContribuinte());
-                System.out.println("Valor em dívida: R$ "+ c.getValorEmDivida());
-                System.out.print("CEP: " ); 
-                System.out.println("");
+                System.out.print("CEP: "); 
+                c.getCp().mostraCp();
                 break;
             }
         }
@@ -249,7 +230,7 @@ public class Empresa {
     public void inserirFornecedores (){
         String nome;
         long contribuinte;
-        int idade;
+        int idade, indicativo, extensao;
         float plafond;
         
         System.out.println("Digite o nome do fornecedor: ");
@@ -260,8 +241,21 @@ public class Empresa {
         idade = sc.nextInt();
         System.out.println("Digite o teto de créditos: ");
         plafond = sc.nextFloat();
-        
-        getListaFornecedores().add(new Fornecedor(nome, contribuinte, idade, plafond));
+        while (true){
+            System.out.println("Digite os 5 primeiros números do CEP: ");
+            indicativo = sc.nextInt();
+            if(indicativo > 99999 && indicativo < 10000)
+                System.out.println("ERRO: O número deve possuir 5 dígitos.");
+            else{
+                System.out.println("Digite os últimos 3 números do CEP: ");
+                extensao = sc.nextInt();
+                if (extensao > 999 || extensao < 100)
+                    System.out.println("ERRO: O número deve possuir 3 dígitos.");
+                else
+                    break;
+            }
+        }
+        getListaFornecedores().add(new Fornecedor(nome, contribuinte, idade, plafond, new CodigoPostal(indicativo, extensao)));
         System.out.println("Novo fornecedor registrado.");
     }
    
@@ -309,7 +303,7 @@ public class Empresa {
     public void inserirEmpregados (){
         String nome;
         long contribuinte;
-        int numeroSeccao, idade;
+        int numeroSeccao, idade, indicativo, extensao;
         float salarioBase;
         
         System.out.println("Digite o nome do empregado: ");
@@ -323,8 +317,21 @@ public class Empresa {
         idade = sc.nextInt();
         System.out.println("Salário base:  ");
         salarioBase = sc.nextFloat();
-                
-        getListaEmpregados().add(new Empregado(nome, contribuinte, idade, numeroSeccao, salarioBase));
+        while (true){
+            System.out.println("Digite os 5 primeiros números do CEP: ");
+            indicativo = sc.nextInt();
+            if(indicativo > 99999 && indicativo < 10000)
+                System.out.println("ERRO: O número deve possuir 5 dígitos.");
+            else{
+                System.out.println("Digite os últimos 3 números do CEP: ");
+                extensao = sc.nextInt();
+                if (extensao > 999 || extensao < 100)
+                    System.out.println("ERRO: O número deve possuir 3 dígitos.");
+                else
+                    break;
+            }
+        }
+        getListaEmpregados().add(new Empregado(nome, contribuinte, idade, numeroSeccao, salarioBase, new CodigoPostal(indicativo, extensao)));
         System.out.println("Novo funcionário registrado.");
     }
     
@@ -368,7 +375,7 @@ public class Empresa {
             }
         }
         if (encontrado == false)
-            System.out.println("Empregado não encontrado!\n");
+            System.out.println("Empregado não encontrado!");
     }
     
     public void mostraAllEmpregados() {
@@ -495,7 +502,7 @@ public class Empresa {
     public void gerenciarClientes(){
         while (true){
             System.out.println("\n=== PESSOAS: CLIENTES ===");
-            System.out.println("Buscar Cliente[1] Remover Cliente[2] Listar Clientes[3] Menu Pessoas[0]");
+            System.out.println("Buscar Cliente[1] Inserir Cliente[2] Remover Cliente[3] Listar Clientes[4] Menu Pessoas[0]");
             System.out.println("Opcão: ");
             opcao = sc.nextInt();
             switch (opcao){
@@ -506,12 +513,16 @@ public class Empresa {
                 case 1:
                     buscarCliente();
                 break;
-
+                
                 case 2:
+                    inserirCliente();
+                break;
+
+                case 3:
                     removerCliente();
                 break;
                 
-                case 3:
+                case 4:
                     mostraAllClientes();
                 break;
                 
@@ -524,7 +535,7 @@ public class Empresa {
     public void gerenciarFornecedores(){
         while (true){
             System.out.println("\n=== PESSOAS: FORNECEDORES ===");
-            System.out.println("Buscar Fornecedor[1] Remover Fornecedor[2] Listar Fornecedor[3] Menu Pessoas[0]");
+            System.out.println("Buscar Fornecedor[1] Inserir Fonecedor[2] Remover Fornecedor[3] Listar Fornecedor[4] Menu Pessoas[0]");
             System.out.println("Opcão: ");
             opcao = sc.nextInt();
             switch (opcao){
@@ -535,12 +546,16 @@ public class Empresa {
                 case 1:
                     buscarFornecedor();
                 break;
-
+                
                 case 2:
+                    inserirFornecedores();
+                break;
+
+                case 3:
                     removerFornecedor();
                 break;
                 
-                case 3:
+                case 4:
                     mostraAllFornecedores();
                 break;
                 
