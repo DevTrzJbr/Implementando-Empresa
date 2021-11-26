@@ -14,6 +14,7 @@ public class Main {
         Empresa empresa = new Empresa();
         
         empresa.addPessoas();
+        empresa.addProdutos();
         empresa.menu();
     }
 }
