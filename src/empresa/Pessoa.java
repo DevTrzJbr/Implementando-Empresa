@@ -8,7 +8,6 @@ public class Pessoa {
     protected long contribuinte; // CPF
     protected int idade;
     protected CodigoPostal cp;
-    protected Map <String, CodigoPostal> mapCp = new HashMap<>();
 
     public Pessoa() {
     }
@@ -19,16 +18,11 @@ public class Pessoa {
         this.idade = idade;
     }
     
-    public void inserir(String nome, CodigoPostal cp){
-        mapCp.put(nome, cp);
-    }
-    
-    public void buscarCp(String contribuinte){
-        mapCp.get(contribuinte).mostraCp();
-    }
-    
-    public void remover(String nome){
-        mapCp.remove(nome);
+    public Pessoa(String nome, long contribuinte, int idade, CodigoPostal cp) {
+        this.nome = nome;
+        this.contribuinte = contribuinte;
+        this.idade = idade;
+        this.cp = cp;
     }
 
     public String getNome() {
@@ -55,5 +49,12 @@ public class Pessoa {
         this.idade = idade;
     }
 
-    
+    public CodigoPostal getCp() {
+        return this.cp;
+    }
+
+    public void setCp(CodigoPostal cp) {
+        this.cp = cp;
+    }
+
 }
