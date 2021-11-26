@@ -342,6 +342,7 @@ public class Empresa {
         this.cp = cp;
     }
     
+    // PRODUTOS
     public void listarProduto() {
         while (true){
             System.out.println("=== PRODUTOS: LISTAR ===");
