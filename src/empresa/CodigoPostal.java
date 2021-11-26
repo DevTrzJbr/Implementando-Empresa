@@ -2,9 +2,9 @@ package empresa;
 
 public class CodigoPostal {
 
-    private int indicativo;
-    private int extensao;
-    private String zona;
+    private int indicativo;  // 5 primeiros digitos CEP
+    private int extensao;  // 3 últimos digitos CEP
+    private String zona;  //  Macro região
 
 
     public CodigoPostal() {

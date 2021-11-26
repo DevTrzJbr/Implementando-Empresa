@@ -1,10 +1,10 @@
 package empresa;
 
 public class Empregado extends Pessoa {
-    private int numeroSeccao;
-    private float salarioBase;
-    private float iRS;
-    private float salario;
+    private int numeroSeccao;  // CPF
+    private float salarioBase;  // Salário Bruto
+    private float iRS;  // Taxa de imposto de Renda
+    private float salario; // Salário Líquido
     
     public Empregado(String nome, long contribuinte, int idade, int numeroSeccao, float salarioBase) {
         super(nome, contribuinte, idade);
