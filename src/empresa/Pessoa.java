@@ -5,7 +5,7 @@ import java.util.Map;
 
 public class Pessoa {
     protected String nome;
-    protected long contribuinte;
+    protected long contribuinte; // CPF
     protected int idade;
     protected CodigoPostal cp;
     protected Map <String, CodigoPostal> mapCp = new HashMap<>();

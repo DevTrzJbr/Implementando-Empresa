@@ -1,8 +1,8 @@
 package empresa;
 
 public class Fornecedor extends Pessoa {
-    private float plafond;
-    private float valorEmDivida;    
+    private float plafond;  // Teto (limite máximo de despesa)
+    private float valorEmDivida;  // 
 
     public Fornecedor(String nome, long contribuinte, int idade, float plafond) {
         super(nome, contribuinte, idade);
