@@ -48,6 +48,19 @@ public class Empresa {
         getListaEmpregados().add(new Empregado("Platão", 2116, 80, 348, 101843.12f));
     }
     
+    public void addProdutos(){
+        listaProdutos.add(new Produto("PERAPHONE", 1599.85f));
+        listaProdutos.add(new Produto("PERAPHONE", 1599.85f));
+        listaProdutos.add(new Produto("PERAPHONE", 1599.85f));
+        listaProdutos.add(new Produto("PERAPHONE", 1599.85f));
+        listaProdutos.add(new Produto("RTX 7080", 8999.97f));
+        listaProdutos.add(new Produto("RTX 7080", 8999.97f));
+        listaProdutos.add(new Produto("RTX 7080", 8999.97f));
+        listaProdutos.add(new Produto("ROBO MEGATRON", 1000299.44f));
+        listaProdutos.add(new Produto("ROBO MEGATRON", 1000299.44f));
+        listaProdutos.add(new Produto("TESLA MODEL XYZ", 349999.99f));
+    }
+
     public void socios() {
         System.out.println("\t- André Melotti");
         System.out.println("\t- André Prado");
@@ -55,7 +68,73 @@ public class Empresa {
         System.out.println("\t- Pedro Lima");
         System.out.println("\t- Yuri Marcos");
     }
+        
+    // PRODUTOS
+    public void listarProduto() {
+        while (true){
+            System.out.println("=== PRODUTOS: LISTAR ===");
+            System.out.println("Produto por Designação[1] Todos os Produtos[2] Voltar[0]");
+            System.out.println("Opcão: ");
+            opcao = sc.nextInt();
+            switch (opcao){
+                case 0:
+                    gerenciarProdutos();
+                break;
+
+                case 1:
+                    mostraProtudo();
+                break;
+
+                case 2:
+                    mostraAllProdutos();
+                break;
+
+                default: System.out.println("ERRO: Opcão inválida.");
+                
+            }
+            if (opcao == 0) break;
+        }
+    }
     
+    public void mostraProtudo() {
+        String designacao;
+        int estoque = 0;
+        
+        System.out.println("Informe a designação do produto: ");
+        designacao = sc.next();
+        if (listaProdutos.isEmpty())
+            System.out.println("O estoque está vazio.");
+        else{
+            for (Produto p: listaProdutos){
+                if (p.getDesignacao().equals(designacao)) 
+                    estoque++;            
+            }
+            if (estoque == 0) 
+                System.out.println("Não há estoque desse produto na loja.");
+            else{
+                for (Produto p: listaProdutos){
+                    if (p.getDesignacao().equals(designacao)){
+                        p.setStock(estoque);
+                        System.out.println("Designação: "+ p.getDesignacao() +" Preço: R$ "+ p.getPrecoVendaPublico() +" Estoque: "+ p.getStock());
+                        break;
+                    }
+                        
+                }
+            }
+        }
+
+    }
+    
+    public void mostraAllProdutos() {
+        if (listaProdutos.isEmpty()) 
+            System.out.println("O estoque da loja está vazio.");
+        else{
+            for (Produto p: listaProdutos)
+                System.out.println("Designação: "+p.getDesignacao()+" | Preço: R$ "+ p.getPrecoVendaPublico());
+        }
+        
+    }
+ 
     // CLIENTES
     public void inserirCliente (){
         String nome, str;
@@ -341,73 +420,8 @@ public class Empresa {
     public void setCp(CodigoPostal cp) {
         this.cp = cp;
     }
-    
-    // PRODUTOS
-    public void listarProduto() {
-        while (true){
-            System.out.println("=== PRODUTOS: LISTAR ===");
-            System.out.println("Produto por Designação[1] Todos os Produtos[2] Voltar[0]");
-            System.out.println("Opcão: ");
-            opcao = sc.nextInt();
-            switch (opcao){
-                case 0:
-                    gerenciarProdutos();
-                break;
-
-                case 1:
-                    mostraProtudo();
-                break;
-
-                case 2:
-                    mostraAllProdutos();
-                break;
-
-                default: System.out.println("ERRO: Opcão inválida.");
-                
-            }
-            if (opcao == 0) break;
-        }
-    }
-    
-    public void mostraProtudo() {
-        String designacao;
-        int estoque = 0;
-        
-        System.out.println("Informe a designação do produto: ");
-        designacao = sc.next();
-        if (listaProdutos.isEmpty())
-            System.out.println("O estoque está vazio.");
-        else{
-            for (Produto p: listaProdutos){
-                if (p.getDesignacao().equals(designacao)) 
-                    estoque++;            
-            }
-            if (estoque == 0) 
-                System.out.println("Não há estoque desse produto na loja.");
-            else{
-                for (Produto p: listaProdutos){
-                    if (p.getDesignacao().equals(designacao)){
-                        p.setStock(estoque);
-                        System.out.println("Designação: "+ p.getDesignacao() +" Preço: R$ "+ p.getPrecoVendaPublico() +" Estoque: "+ p.getStock());
-                        break;
-                    }
-                        
-                }
-            }
-        }
-
-    }
-    
-    public void mostraAllProdutos() {
-        if (listaProdutos.isEmpty()) 
-            System.out.println("O estoque da loja está vazio.");
-        else{
-            for (Produto p: listaProdutos)
-                System.out.println("Designação: "+p.getDesignacao()+" | Preço: R$ "+ p.getPrecoVendaPublico());
-        }
-        
-    }
-    
+   
+    // SISTEMA
     public void status() {
         do{
             System.out.println("------ STATUS ------");
