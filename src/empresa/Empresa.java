@@ -196,8 +196,8 @@ public class Empresa {
                 System.out.println("Teto de créditos (plafond): R$ "+ c.getPlafond());
                 System.out.println("N° contribuinte: "+ c.getContribuinte());
                 System.out.println("Valor em dívida: R$ "+ c.getValorEmDivida());
-                System.out.print("CEP: "+ c.getCp()); 
-                System.out.println("");
+                System.out.print("CEP: " );
+                c.getCp().mostraCp();
                 break;
             }
         }
@@ -214,7 +214,8 @@ public class Empresa {
                 System.out.println("Teto de créditos (plafond): R$ "+ c.getPlafond());
                 System.out.println("N° contribuinte: "+ c.getContribuinte());
                 System.out.println("Valor em dívida: R$ "+ c.getValorEmDivida());
-                System.out.print("CEP: " ); 
+                System.out.print("CEP: " );
+                c.getCp().mostraCp();
                 System.out.println("");
                 break;
             }
