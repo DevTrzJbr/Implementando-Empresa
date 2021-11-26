@@ -70,6 +70,20 @@ public class Empresa {
     }
         
     // PRODUTOS
+    public void inserirProduto() {
+        String designacao;
+        float preco;
+        
+        System.out.println("Informe a designação do novo produto: ");
+        designacao = sc.next();
+        System.out.println("Digite o valor de venda do novo produto: ");
+        preco = sc.nextInt();
+        
+        listaProdutos.add(new Produto(designacao, preco));
+        System.out.println("Inserção completa.");
+        gerenciarProdutos();
+    }
+
     public void listarProduto() {
         while (true){
             System.out.println("=== PRODUTOS: LISTAR ===");
@@ -82,7 +96,7 @@ public class Empresa {
                 break;
 
                 case 1:
-                    mostraProtudo();
+                    buscarProtudo();
                 break;
 
                 case 2:
@@ -96,7 +110,7 @@ public class Empresa {
         }
     }
     
-    public void mostraProtudo() {
+    public void buscarProtudo() {
         String designacao;
         int estoque = 0;
         
@@ -284,6 +298,7 @@ public class Empresa {
         float salarioBase;
         
         System.out.println("Digite o nome do empregado: ");
+        String gambiarra = sc.nextLine();
         nome = sc.nextLine();
         System.out.println("Digite um valor de contribuinte: ");
         contribuinte = sc.nextLong();
@@ -300,6 +315,7 @@ public class Empresa {
     
     public void buscarEmpregado(){
         int numeroSeccao;
+        boolean vazio = true;
         System.out.println("Digite o número de seccão do empregado: ");
         numeroSeccao = sc.nextInt();
         
@@ -313,8 +329,12 @@ public class Empresa {
                 System.out.println("Salário: "+ e.getSalario());
                 System.out.println("N° contribuinte: "+ e.getContribuinte());
                 System.out.println("iRS: "+ e.getIRS());
+                vazio = false;
                 break;
             }
+        }
+        if (vazio == true) {
+            System.out.println("Lista de empregados vazia!\n");
         }
     }
     
@@ -330,6 +350,7 @@ public class Empresa {
                 break;
             }
         }
+        System.out.println("Empregado não encontrado!\n");
     }
     
     public void mostraAllEmpregados() {
@@ -337,7 +358,8 @@ public class Empresa {
             System.out.println("Não há empregados.");
         else{
             for (Empregado e: listaEmpregados){
-                System.out.println("< Nome: "+e.getNome()+" | Nº contribuinte: "+ e.getContribuinte() +" | Nº seccão: "+ e.getNumeroSeccao()+" | Idade: "+ e.getIdade() +" | Salário: "+ e.getSalario() +" | iRS: "+ e.getIRS() +" >");
+                // System.out.println("< Nome: "+e.getNome()+" | Nº contribuinte: "+ e.getContribuinte() +" | Nº seccão: "+ e.getNumeroSeccao()+" | Idade: "+ e.getIdade() +" | Salário: "+ e.getSalario() +" | iRS: "+ e.getIRS() +" >");
+                System.out.printf("< Nome: %s| N° CPF: %d | N° secção: %d | Idade: %d | Salário: R$%.2f | IRS: %.0f%% >\n",e.getNome(),e.getContribuinte(),  e.getNumeroSeccao(), e.getIdade(), e.getSalario(), e.getIRS() * 100 );
             }
         }
     }
@@ -399,20 +421,6 @@ public class Empresa {
         this.listaEmpregados = listaEmpregados;
     }
 
-    public void inserirProduto() {
-        String designacao;
-        float preco;
-        
-        System.out.println("Informe a designação do novo produto: ");
-        designacao = sc.next();
-        System.out.println("Digite o valor de venda do novo produto: ");
-        preco = sc.nextInt();
-        
-        listaProdutos.add(new Produto(designacao, preco));
-        System.out.println("Inserção completa.");
-        gerenciarProdutos();
-    }
-
     public CodigoPostal getCp() {
         return cp;
     }
@@ -443,7 +451,7 @@ public class Empresa {
     
     public void gerenciarProdutos(){
         while (true){
-            System.out.println("=== PRODUTOS ===");
+            System.out.println("\n=== PRODUTOS ===");
             System.out.println("Adicionar Produto[1] Listar Produto[2] Menu Inicial[0]");
             System.out.println("Opcão: ");
             opcao = sc.nextInt();
@@ -468,7 +476,7 @@ public class Empresa {
     
     public void gerenciarClientes(){
         while (true){
-            System.out.println("=== PESSOAS: CLIENTES ===");
+            System.out.println("\n=== PESSOAS: CLIENTES ===");
             System.out.println("Buscar Cliente[1] Remover Cliente[2] Listar Clientes[3] Menu Pessoas[0]");
             System.out.println("Opcão: ");
             opcao = sc.nextInt();
@@ -497,7 +505,7 @@ public class Empresa {
     
     public void gerenciarFornecedores(){
         while (true){
-            System.out.println("=== PESSOAS: FORNECEDORES ===");
+            System.out.println("\n=== PESSOAS: FORNECEDORES ===");
             System.out.println("Buscar Fornecedor[1] Remover Fornecedor[2] Listar Fornecedor[3] Menu Pessoas[0]");
             System.out.println("Opcão: ");
             opcao = sc.nextInt();
@@ -526,8 +534,8 @@ public class Empresa {
     
     public void gerenciarEmpregados(){
         while (true){
-            System.out.println("=== PESSOAS: EMPREGADOS ===");
-            System.out.println("Buscar Empregado[1] Remover Empregado[2] Listar Empregados[3] Menu Pessoas[0]");
+            System.out.println("\n=== PESSOAS: EMPREGADOS ===");
+            System.out.println("Buscar Empregado[1] Inserir Empregado[2] Remover Empregado[3] Listar Empregados[4] Menu Pessoas[0]");
             System.out.println("Opcão: ");
             opcao = sc.nextInt();
             switch (opcao){
@@ -540,10 +548,14 @@ public class Empresa {
                 break;
 
                 case 2:
-                    removerEmpregado();
+                    inserirEmpregados();
                 break;
                 
                 case 3:
+                    removerEmpregado();
+                break;
+                
+                case 4:
                     mostraAllEmpregados();
                 break;
                 
@@ -555,7 +567,7 @@ public class Empresa {
     
     public void gerenciarPessoas(){
         while (true){
-            System.out.println("=== PESSOAS ===");
+            System.out.println("\n=== PESSOAS ===");
             System.out.println("Empregados[1] Clientes[2] Fornecedores[3] Menu Inicial[0]");
             System.out.println("Opcão: ");
             opcao = sc.nextInt();
