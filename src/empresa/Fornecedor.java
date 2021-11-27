@@ -1,13 +1,21 @@
-public class Fornecedor extends Pessoa {
-    private float plafond;
-    private float valorEmDivida;    
+package empresa;
 
-    public Fornecedor(String nome, long contribuinte, int idade, float plafond, float valorEmDivida) {
+public class Fornecedor extends Pessoa {
+    private float plafond;  // Teto (limite máximo de despesa)
+    private float valorEmDivida;  // 
+
+    public Fornecedor(String nome, long contribuinte, int idade, float plafond) {
         super(nome, contribuinte, idade);
         this.plafond = plafond;
-        this.valorEmDivida = valorEmDivida;
+        this.valorEmDivida = 0f;
     }
-
+    
+    public Fornecedor(String nome, long contribuinte, int idade, float plafond, CodigoPostal cp) {
+        super(nome, contribuinte, idade, cp);
+        this.plafond = plafond;
+        this.valorEmDivida = 0f;
+    }
+    
     public float getPlafond() {
         return this.plafond;
     }

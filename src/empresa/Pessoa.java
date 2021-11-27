@@ -1,16 +1,29 @@
+package empresa;
+
+import java.util.HashMap;
+import java.util.Map;
+
 public class Pessoa {
-    private String nome;
-    private long contribuinte;
-    private int idade;
-    public CodigoPostal cp;
+    protected String nome;
+    protected long contribuinte; // CPF
+    protected int idade;
+    protected CodigoPostal cp;
 
-
+    public Pessoa() {
+    }
+    
     public Pessoa(String nome, long contribuinte, int idade) {
         this.nome = nome;
         this.contribuinte = contribuinte;
         this.idade = idade;
     }
-
+    
+    public Pessoa(String nome, long contribuinte, int idade, CodigoPostal cp) {
+        this.nome = nome;
+        this.contribuinte = contribuinte;
+        this.idade = idade;
+        this.cp = cp;
+    }
 
     public String getNome() {
         return this.nome;
@@ -36,5 +49,12 @@ public class Pessoa {
         this.idade = idade;
     }
 
-    
+    public CodigoPostal getCp() {
+        return this.cp;
+    }
+
+    public void setCp(CodigoPostal cp) {
+        this.cp = cp;
+    }
+
 }

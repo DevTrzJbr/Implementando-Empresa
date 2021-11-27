@@ -1,11 +1,19 @@
+package empresa;
+
 public class Empregado extends Pessoa {
-    private int numeroSeccao;
-    private float salarioBase;
-    private float iRS;
-    private float salario;
+    private int numeroSeccao;  // CPF
+    private float salarioBase;  // Salário Bruto
+    private float iRS;  // Taxa de imposto de Renda
+    private float salario; // Salário Líquido
     
     public Empregado(String nome, long contribuinte, int idade, int numeroSeccao, float salarioBase) {
         super(nome, contribuinte, idade);
+        this.numeroSeccao = numeroSeccao;
+        this.salarioBase = salarioBase;
+    }
+    
+    public Empregado(String nome, long contribuinte, int idade, int numeroSeccao, float salarioBase, CodigoPostal cp) {
+        super(nome, contribuinte, idade, cp);
         this.numeroSeccao = numeroSeccao;
         this.salarioBase = salarioBase;
     }
@@ -14,19 +22,19 @@ public class Empregado extends Pessoa {
     public float calcularSalario() {
 
         if (salarioBase <= 7112) {
-            iRS = 0.145f;
+            this.iRS = 0.145f;
         } else if (salarioBase <= 10732) {
-            iRS = 0.23f;
+            this.iRS = 0.23f;
         } else if (salarioBase <= 20322) {
-            iRS = 0.28f;
+            this.iRS = 0.28f;
         } else if (salarioBase <= 25075) {
-            iRS = 0.35f;
+            this.iRS = 0.35f;
         } else if (salarioBase <= 36967) {
-            iRS = 0.37f;
+            this.iRS = 0.37f;
         } else if (salarioBase <= 80882) {
-            iRS = 0.45f;
+            this.iRS = 0.45f;
         } else {
-            iRS = 0.48f;
+            this.iRS = 0.48f;
         }
 
         return this.salario = this.salarioBase * (1 - this.iRS);
@@ -49,6 +57,7 @@ public class Empregado extends Pessoa {
     }
 
     public float getIRS() {
+        calcularSalario();
         return this.iRS;
     }
 
