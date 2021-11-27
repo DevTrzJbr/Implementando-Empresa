@@ -26,7 +26,6 @@ public class Empresa {
     }
     
     public void addPessoas() {
-
         getListaClientes().add(new Cliente("Anton Tchekhov", 21001, 73, 10000, new CodigoPostal(24000, 123)));
         getListaClientes().add(new Cliente("Fiódor Dostoiévski", 21002, 84, 10000, new CodigoPostal(29685, 456)));
         getListaClientes().add(new Cliente("Homero", 21003, 99, 10000, new CodigoPostal(42000, 427)));
@@ -197,7 +196,6 @@ public class Empresa {
                     break;
             }
         }
-
         getListaClientes().add(new Cliente(name, contribuinte, idade, plafond, new CodigoPostal(indicativo, extensao)));
         System.out.println("Novo cliente registrado.");
     }
@@ -375,7 +373,6 @@ public class Empresa {
         }
         getListaEmpregados().add(new Empregado(name, contribuinte, idade, numeroSeccao, salarioBase, new CodigoPostal(indicativo, extensao)));
         System.out.println("Novo funcionário registrado.");
-        gerenciarPessoas();
     }
     
     public void buscarEmpregado(){
@@ -538,7 +535,6 @@ public class Empresa {
 
                 default: System.out.println("ERRO: Opcão inválida.");
             }
-            if (opcao == 0) break;
         }
     }
     
@@ -571,7 +567,6 @@ public class Empresa {
                 
                 default: System.out.println("ERRO: Opcão inválida.");
             }
-            if (opcao == 0) break;
         }
     }
     
@@ -604,7 +599,6 @@ public class Empresa {
                 
                 default: System.out.println("ERRO: Opcão inválida.");
             }
-            if (opcao == 0) break;
         }
     }
     
@@ -637,7 +631,6 @@ public class Empresa {
                 
                 default: System.out.println("ERRO: Opcão inválida.");
             }
-            if (opcao == 0) break;
         }
     }
     
@@ -666,7 +659,6 @@ public class Empresa {
                 
                 default: System.out.println("ERRO: Opcão inválida.");
             }
-            if (opcao == 0) break;
         }
     }
     
@@ -695,9 +687,7 @@ public class Empresa {
                 break;
 
                 default: System.out.println("ERRO: Opcão inválida.");
-
             }
-            if (opcao == 0) break;
         }
     }
 }
