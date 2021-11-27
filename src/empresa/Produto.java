@@ -35,10 +35,6 @@ public class Produto {
     
     public Produto(String designacao, float precoVendaPublico) {
         this.designacao = designacao;
-        this.precoVendaPublico = precoVendaPublico;
-        
+        this.precoVendaPublico = precoVendaPublico;   
     }
-    
-    
-
 }
