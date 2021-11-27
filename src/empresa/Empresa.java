@@ -139,7 +139,7 @@ public class Empresa {
         else{
             for (Produto p: listaProdutos){
                 if (p.getDesignacao().equals(designacao)) 
-                    estoque++;            
+                    estoque++;
             }
             if (estoque == 0) 
                 System.out.println("Não há estoque desse produto na loja.");
@@ -164,7 +164,7 @@ public class Empresa {
             for (Produto p: listaProdutos)
                 System.out.println("Designação: "+p.getDesignacao()+" | Preço: R$ "+ p.getPrecoVendaPublico());
         }
-        System.out.println("-----------------------------------------------------------------------------------------------");      
+        System.out.println("-----------------------------------------------------------------------------------------------");
     }
  
     // CLIENTES
