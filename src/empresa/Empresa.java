@@ -75,8 +75,9 @@ public class Empresa {
         String designacao;
         float preco;
         
+        sc.nextLine();
         System.out.println("Informe a designação do novo produto: ");
-        designacao = sc.next();
+        designacao = sc.nextLine();
         System.out.println("Digite o valor de venda do novo produto: ");
         preco = sc.nextInt();
         
@@ -252,9 +253,6 @@ public class Empresa {
                 break;
             }
         }
-        System.out.println("(Pressione 0 para voltar.)");
-        opcao = sc.nextInt();
-        gerenciarPessoas();
     }
     
     public void removerCliente (){
@@ -342,9 +340,6 @@ public class Empresa {
                 break;
             }
         }
-        System.out.println("(Pressione 0 para voltar.)");
-        opcao = sc.nextInt();
-        gerenciarPessoas();
     }
     
     public void removerFornecedor (){
@@ -440,9 +435,7 @@ public class Empresa {
         if (vazio == true) {
             System.out.println("Empregado não encontrado!\n");
         }
-        System.out.println("(Pressione 0 para voltar.)");
-        opcao = sc.nextInt();
-        gerenciarPessoas();
+    
     }
     
     public void removerEmpregado (){
@@ -753,7 +746,5 @@ public class Empresa {
             }
             if (opcao == 0) break;
         }
-
     }
-    
 }
