@@ -87,7 +87,7 @@ public class Empresa {
     public void listarProduto() {
         while (true){
             System.out.println("=== PRODUTOS: LISTAR ===");
-            System.out.println("Produto por Designação[1] Todos os Produtos[2] Voltar[0]");
+            System.out.println("Produto por Designação[1] \tTodos os Produtos[2] \tVoltar[0]");
             System.out.println("Opcão: ");
             opcao = sc.nextInt();
             switch (opcao){
@@ -210,12 +210,12 @@ public class Empresa {
         } else {
             for (Cliente c: listaClientes){
                 if (c.getContribuinte() == contribuinte){
-                    System.out.println("Nome: "+ c.getNome());
-                    System.out.println("Idade: "+ c.getIdade());
-                    System.out.println("Teto de créditos (plafond): R$ "+ c.getPlafond());
-                    System.out.println("N° contribuinte: "+ c.getContribuinte());
-                    System.out.println("Valor em dívida: R$ "+ c.getValorEmDivida());
-                    System.out.print("CEP: " );
+                    System.out.println("Nome: \t\t\t"+ c.getNome());
+                    System.out.println("Idade: \t\t\t"+ c.getIdade());
+                    System.out.println("Teto de créditos: \tR$ "+ c.getPlafond());
+                    System.out.println("N° contribuinte: \t"+ c.getContribuinte());
+                    System.out.println("Valor em dívida: \tR$ "+ c.getValorEmDivida());
+                    System.out.print("CEP: \t\t\t" );
                     c.getCp().mostraCp();
                     break;
                 }
@@ -297,12 +297,12 @@ public class Empresa {
         } else {
             for (Fornecedor f: listaFornecedores){
                 if (f.getContribuinte() == contribuinte){
-                    System.out.println("Nome: "+ f.getNome());
-                    System.out.println("Idade: "+ f.getIdade());
-                    System.out.println("Teto de créditos (plafond): R$ "+ f.getPlafond());
-                    System.out.println("N° contribuinte: "+ f.getContribuinte());
-                    System.out.println("Valor em dívida: R$ "+ f.getValorEmDivida());
-                    System.out.print("CEP: "); 
+                    System.out.println("Nome: \t\t\t"+ f.getNome());
+                    System.out.println("Idade: \t\t\t"+ f.getIdade());
+                    System.out.println("Teto de créditos: \tR$ "+ f.getPlafond());
+                    System.out.println("N° contribuinte: \t"+ f.getContribuinte());
+                    System.out.println("Valor em dívida: \tR$ "+ f.getValorEmDivida());
+                    System.out.print("CEP: \t\t\t"); 
                     f.getCp().mostraCp();
                     break;
                 }
@@ -334,7 +334,7 @@ public class Empresa {
         else{
             System.out.println("-------------------------------------- LISTA DE FORNECEDORES --------------------------------------");
             for (Fornecedor f: listaFornecedores)
-                System.out.println("< Nome: "+f.getNome()+" | Nº contribuinte: "+ f.getContribuinte() +" | Idade: "+ f.getIdade() +" | Plafond: R$ "+ f.getPlafond() +" | Dívida: R$"+ f.getValorEmDivida() +" >");
+                System.out.println("< Nome: "+f.getNome()+" \t| Nº contribuinte: "+ f.getContribuinte() +" \t| Idade: "+ f.getIdade() +" \t| Plafond: R$ "+ f.getPlafond() +" \t| Dívida: R$"+ f.getValorEmDivida() +" >");
         }
         System.out.println("---------------------------------------------------------------------------------------------------");
     }
@@ -386,13 +386,13 @@ public class Empresa {
             for (Empregado e: listaEmpregados){
                 if (e.getNumeroSeccao() == numeroSeccao){
                     e.calcularSalario();
-                    System.out.println("Numero de Seccão: "+ e.getNumeroSeccao());
-                    System.out.println("Nome: "+ e.getNome());
-                    System.out.println("Idade: "+ e.getIdade());
-                    System.out.printf("Salário base: R$ %.2f\n", e.getSalarioBase());
-                    System.out.printf("Salário:      R$ %.2f\n", e.getSalario());
-                    System.out.println("N° contribuinte: "+ e.getContribuinte());
-                    System.out.printf("iRS: %.1f%%\n", e.getIRS()*100);
+                    System.out.println("Numero de Seccão: \t"+ e.getNumeroSeccao());
+                    System.out.println("Nome: \t\t\t"+ e.getNome());
+                    System.out.println("Idade: \t\t\t"+ e.getIdade());
+                    System.out.printf("Salário base: \t\tR$ %.2f\n", e.getSalarioBase());
+                    System.out.printf("Salário: \t\tR$ %.2f\n", e.getSalario());
+                    System.out.println("N° contribuinte: \t"+ e.getContribuinte());
+                    System.out.printf("iRS: \t\t\t%.1f%%\n", e.getIRS()*100);
                     break;
                 }
             }
@@ -423,7 +423,7 @@ public class Empresa {
         else{
             System.out.println("-------------------------------------- LISTA DE EMPREGADOS --------------------------------------");
             for (Empregado e: listaEmpregados){
-                System.out.printf("< Nome: %s| N° CPF: %d | N° secção: %d | Idade: %d | Salário: R$ %.2f | IRS: %.1f%% >\n",e.getNome(),e.getContribuinte(),  e.getNumeroSeccao(), e.getIdade(), e.getSalario(), e.getIRS() * 100 );
+                System.out.printf("< Nome: %s | N° CPF: %d | N° secção: %d | Idade: %d | Salário: R$ %.2f | IRS: %.1f%% >\n",e.getNome(),e.getContribuinte(),  e.getNumeroSeccao(), e.getIdade(), e.getSalario(), e.getIRS() * 100 );
             }
             System.out.println("-------------------------------------------------------------------------------------------------");
         }
@@ -513,7 +513,7 @@ public class Empresa {
     public void gerenciarProdutos(){
         while (true){
             System.out.println("\n=== PRODUTOS ===");
-            System.out.println("Adicionar Produto[1] Remover Produto[2] Listar Produto[3] Menu Inicial[0]");
+            System.out.println("Adicionar Produto[1] \tRemover Produto[2] \tListar Produto[3] \tMenu Inicial[0]");
             System.out.println("Opcão: ");
             opcao = sc.nextInt();
             switch (opcao){
@@ -541,7 +541,7 @@ public class Empresa {
     public void gerenciarClientes(){
         while (true){
             System.out.println("\n=== PESSOAS: CLIENTES ===");
-            System.out.println("Buscar Cliente[1] Inserir Cliente[2] Remover Cliente[3] Listar Clientes[4] Menu Pessoas[0]");
+            System.out.println("Buscar Cliente[1] \tInserir Cliente[2] \tRemover Cliente[3] \tListar Clientes[4] \tMenu Pessoas[0]");
             System.out.println("Opcão: ");
             opcao = sc.nextInt();
             switch (opcao){
@@ -573,7 +573,7 @@ public class Empresa {
     public void gerenciarFornecedores(){
         while (true){
             System.out.println("\n=== PESSOAS: FORNECEDORES ===");
-            System.out.println("Buscar Fornecedor[1] Inserir Fonecedor[2] Remover Fornecedor[3] Listar Fornecedor[4] Menu Pessoas[0]");
+            System.out.println("Buscar Fornecedor[1] \tInserir Fonecedor[2] \tRemover Fornecedor[3] \tListar Fornecedor[4] \tMenu Pessoas[0]");
             System.out.println("Opcão: ");
             opcao = sc.nextInt();
             switch (opcao){
@@ -605,7 +605,7 @@ public class Empresa {
     public void gerenciarEmpregados(){
         while (true){
             System.out.println("\n=== PESSOAS: EMPREGADOS ===");
-            System.out.println("Buscar Empregado[1] Inserir Empregado[2] Remover Empregado[3] Listar Empregados[4] Menu Pessoas[0]");
+            System.out.println("Buscar Empregado[1] \tInserir Empregado[2] \tRemover Empregado[3] \tListar Empregados[4] \tMenu Pessoas[0]");
             System.out.println("Opcão: ");
             opcao = sc.nextInt();
             switch (opcao){
@@ -637,7 +637,7 @@ public class Empresa {
     public void gerenciarPessoas(){
         while (true){
             System.out.println("\n=== PESSOAS ===");
-            System.out.println("Empregados[1] Clientes[2] Fornecedores[3] Menu Inicial[0]");
+            System.out.println("Empregados[1] \tClientes[2] \tFornecedores[3] \tMenu Inicial[0]");
             System.out.println("Opcão: ");
             opcao = sc.nextInt();
             switch (opcao){
@@ -663,15 +663,17 @@ public class Empresa {
     }
     
     public void menu(){
-        while (true) {
+        boolean online = true;
+        while (online) {
             System.out.println("\n----- PROMETHEUS SYSTEM -----");
-            System.out.println("Gerenciar Pessoas[1] Gerenciar Produtos[2] Informações Empresa[3] Sair[0]");
+            System.out.println("Gerenciar Pessoas[1] \tGerenciar Produtos[2] \tInformações Empresa[3] \tSair[0]");
             System.out.println("Digite uma das opções acima: ");
             
             opcao = sc.nextInt(); 
             switch (opcao){
                 case 0:
                     System.out.println("Saindo...");
+                    online = false;
                 break;
 
                 case 1:
