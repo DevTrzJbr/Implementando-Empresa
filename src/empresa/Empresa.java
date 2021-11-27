@@ -499,19 +499,17 @@ public class Empresa {
    
     // SISTEMA
     public void status() {
-        do{
-            System.out.println("------ STATUS ------");
-            System.out.println("EMPRESA: "+ getNome());
-            System.out.print("CEP: ");
-            getCodigoPostal().mostraCp();
-            System.out.println("FUNDAÇÃO: "+ getDataFundacao());
-            System.out.println("CEO: Vinícius Rosalen");
-            System.out.println("SÓCIOS: ");
-            socios();
-            System.out.println("Nº FUNCIONÁRIOS ATUAL: " + getListaEmpregados().size());
-            System.out.println("Nº CLIENTES ATUAL: "+ getListaClientes().size());
-            System.out.println("Nº FORNECEDORES ATUAL: "+ getListaFornecedores().size());
-        } while (opcao != 0);
+        System.out.println("\n------ STATUS ------");
+        System.out.println("EMPRESA: "+ getNome());
+        System.out.print("CEP: ");
+        getCodigoPostal().mostraCp();
+        System.out.println("FUNDAÇÃO: "+ getDataFundacao());
+        System.out.println("CEO: Vinícius Rosalen");
+        System.out.println("SÓCIOS: ");
+        socios();
+        System.out.println("Nº FUNCIONÁRIOS ATUAL: " + getListaEmpregados().size());
+        System.out.println("Nº CLIENTES ATUAL: "+ getListaClientes().size());
+        System.out.println("Nº FORNECEDORES ATUAL: "+ getListaFornecedores().size());
         menu();
     }
     
@@ -674,7 +672,7 @@ public class Empresa {
     
     public void menu(){
         while (true) {
-            System.out.println("----- PROMETHEUS SYSTEM -----");
+            System.out.println("\n----- PROMETHEUS SYSTEM -----");
             System.out.println("Gerenciar Pessoas[1] Gerenciar Produtos[2] Informações Empresa[3] Sair[0]");
             System.out.println("Digite uma das opções acima: ");
             
