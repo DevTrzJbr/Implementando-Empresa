@@ -1,8 +1,5 @@
 package empresa;
 
-import java.util.HashMap;
-import java.util.Map;
-
 public class Pessoa {
     protected String nome;
     protected long contribuinte; // CPF
