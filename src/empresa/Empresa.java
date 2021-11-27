@@ -82,6 +82,8 @@ public class Empresa {
         
         listaProdutos.add(new Produto(designacao, preco));
         System.out.println("Inserção completa.");
+        System.out.println("(Pressione 0 para voltar.)");
+        opcao = sc.nextInt();
         gerenciarProdutos();
     }
 
@@ -109,6 +111,26 @@ public class Empresa {
             }
             if (opcao == 0) break;
         }
+        
+    }
+    
+    public void removerProtudo() {
+        String designacao;
+        
+        sc.nextLine();
+        System.out.println("Digite a designação do produto: ");
+        designacao = sc.nextLine();
+        
+        for (Produto pr: listaProdutos){
+            if (pr.getDesignacao().equals(designacao)){
+                listaProdutos.remove(pr);
+                System.out.println("Produto "+ pr.getDesignacao()+" removido.");
+                break;
+            }
+        }
+        System.out.println("(Pressione 0 para voltar.)");
+        opcao = sc.nextInt();
+        gerenciarProdutos();
     }
     
     public void buscarProtudo() {
@@ -131,32 +153,41 @@ public class Empresa {
                     if (p.getDesignacao().equals(designacao)){
                         p.setStock(estoque);
                         System.out.println("Designação: "+ p.getDesignacao() +" Preço: R$ "+ p.getPrecoVendaPublico() +" Estoque: "+ p.getStock());
+                        System.out.println("(Pressione 0 para voltar.)");
+                        opcao = sc.nextInt();
                         break;
                     }
                 }
             }
         }
+        gerenciarProdutos();
     }
     
     public void mostraAllProdutos() {
         if (listaProdutos.isEmpty()) 
             System.out.println("O estoque da loja está vazio.");
         else{
+            System.out.println("-------------------------------------- LISTA DE PRODUTOS --------------------------------------");
             for (Produto p: listaProdutos)
                 System.out.println("Designação: "+p.getDesignacao()+" | Preço: R$ "+ p.getPrecoVendaPublico());
         }
+        System.out.println("-----------------------------------------------------------------------------------------------");
+        System.out.println("(Pressione 0 para voltar.)");
+        opcao = sc.nextInt();
+        gerenciarProdutos();
         
     }
  
     // CLIENTES
     public void inserirCliente (){
-        String nome;
+        String name;
         long contribuinte;
         int idade, indicativo, extensao;
         float plafond;
         
+        sc.nextLine();
         System.out.println("Digite o nome do cliente: ");
-        nome = sc.nextLine();
+        name = sc.nextLine();
         System.out.println("Digite um valor de contribuinte: ");
         contribuinte = sc.nextLong();
         System.out.println("Digite a idade: ");
@@ -178,9 +209,11 @@ public class Empresa {
             }
         }
 
-        getListaClientes().add(new Cliente(nome, contribuinte, idade, plafond, new CodigoPostal(indicativo, extensao)));
+        getListaClientes().add(new Cliente(name, contribuinte, idade, plafond, new CodigoPostal(indicativo, extensao)));
         System.out.println("Novo cliente registrado.");
-        
+        System.out.println("(Pressione 0 para voltar.)");
+        opcao = sc.nextInt();
+        gerenciarPessoas();
     }
      
     public void buscarCliente(){
@@ -200,7 +233,9 @@ public class Empresa {
                 break;
             }
         }
-        
+        System.out.println("(Pressione 0 para voltar.)");
+        opcao = sc.nextInt();
+        gerenciarPessoas();
     }
     
     public void removerCliente (){
@@ -215,26 +250,35 @@ public class Empresa {
                 break;
             }
         }
+        System.out.println("(Pressione 0 para voltar.)");
+        opcao = sc.nextInt();
+        gerenciarPessoas();
     }
      
     public void mostraAllClientes() {
         if (listaClientes.isEmpty()) 
-            System.out.println("Não há clientes.");
+            System.out.println("Não há clientes registrados.");
         else{
+            System.out.println("-------------------------------------- LISTA DE CLIENTES --------------------------------------");
             for (Cliente c: listaClientes)
-                System.out.println("< Nome: "+c.getNome()+" | Nº contribuinte: "+ c.getContribuinte() +" | Idade: "+ c.getIdade() +" | Plafond: "+ c.getPlafond() +" | Dívida: "+ c.getValorEmDivida() +" >");
+                System.out.println("< Nome: "+c.getNome()+" | Nº contribuinte: "+ c.getContribuinte() +" | Idade: "+ c.getIdade() +" | Plafond: R$ "+ c.getPlafond() +" | Dívida: R$ "+ c.getValorEmDivida() +" >");
         }
+        System.out.println("-----------------------------------------------------------------------------------------------");
+        System.out.println("(Pressione 0 para voltar.)");
+        opcao = sc.nextInt();
+        gerenciarPessoas();
     }
     
     // FORNECEDORES
     public void inserirFornecedores (){
-        String nome;
+        String name;
         long contribuinte;
         int idade, indicativo, extensao;
         float plafond;
         
+        sc.nextLine();
         System.out.println("Digite o nome do fornecedor: ");
-        nome = sc.nextLine();
+        name = sc.nextLine();
         System.out.println("Digite um valor de contribuinte: ");
         contribuinte = sc.nextLong();
         System.out.println("Digite a idade: ");
@@ -255,8 +299,11 @@ public class Empresa {
                     break;
             }
         }
-        getListaFornecedores().add(new Fornecedor(nome, contribuinte, idade, plafond, new CodigoPostal(indicativo, extensao)));
+        getListaFornecedores().add(new Fornecedor(name, contribuinte, idade, plafond, new CodigoPostal(indicativo, extensao)));
         System.out.println("Novo fornecedor registrado.");
+        System.out.println("(Pressione 0 para voltar.)");
+        opcao = sc.nextInt();
+        gerenciarPessoas();
     }
    
     public void buscarFornecedor(){
@@ -271,9 +318,14 @@ public class Empresa {
                 System.out.println("Teto de créditos (plafond): R$ "+ f.getPlafond());
                 System.out.println("N° contribuinte: "+ f.getContribuinte());
                 System.out.println("Valor em dívida: R$ "+ f.getValorEmDivida());
+                System.out.print("CEP: "); 
+                f.getCp().mostraCp();
                 break;
             }
         }
+        System.out.println("(Pressione 0 para voltar.)");
+        opcao = sc.nextInt();
+        gerenciarPessoas();
     }
     
     public void removerFornecedor (){
@@ -288,27 +340,35 @@ public class Empresa {
                 break;
             }
         }
+        System.out.println("(Pressione 0 para voltar.)");
+        opcao = sc.nextInt();
+        gerenciarPessoas();
     }
    
     public void mostraAllFornecedores() {
         if (listaFornecedores.isEmpty()) 
             System.out.println("Não há fornecedores.");
         else{
+            System.out.println("-------------------------------------- LISTA DE FORNECEDORES --------------------------------------");
             for (Fornecedor f: listaFornecedores)
-                System.out.println("< Nome: "+f.getNome()+" | Nº contribuinte: "+ f.getContribuinte() +" | Idade: "+ f.getIdade() +" | Plafond: "+ f.getPlafond() +" | Dívida: "+ f.getValorEmDivida() +" >");
+                System.out.println("< Nome: "+f.getNome()+" | Nº contribuinte: "+ f.getContribuinte() +" | Idade: "+ f.getIdade() +" | Plafond: R$ "+ f.getPlafond() +" | Dívida: R$"+ f.getValorEmDivida() +" >");
         }
+        System.out.println("---------------------------------------------------------------------------------------------------");
+        System.out.println("(Pressione 0 para voltar.)");
+        opcao = sc.nextInt();
+        gerenciarPessoas();
     }
   
     // EMPREGADOS
     public void inserirEmpregados (){
-        String nome;
+        String name;
         long contribuinte;
         int numeroSeccao, idade, indicativo, extensao;
         float salarioBase;
         
+        sc.nextLine();
         System.out.println("Digite o nome do empregado: ");
-        String gambiarra = sc.nextLine();
-        nome = sc.nextLine();
+        name = sc.nextLine();
         System.out.println("Digite um valor de contribuinte: ");
         contribuinte = sc.nextLong();
         System.out.println("Crie um número de seccão: ");
@@ -331,8 +391,11 @@ public class Empresa {
                     break;
             }
         }
-        getListaEmpregados().add(new Empregado(nome, contribuinte, idade, numeroSeccao, salarioBase, new CodigoPostal(indicativo, extensao)));
+        getListaEmpregados().add(new Empregado(name, contribuinte, idade, numeroSeccao, salarioBase, new CodigoPostal(indicativo, extensao)));
         System.out.println("Novo funcionário registrado.");
+        System.out.println("(Pressione 0 para voltar.)");
+        opcao = sc.nextInt();
+        gerenciarPessoas();
     }
     
     public void buscarEmpregado(){
@@ -347,8 +410,8 @@ public class Empresa {
                 System.out.println("Numero de Seccão: "+ e.getNumeroSeccao());
                 System.out.println("Nome: "+ e.getNome());
                 System.out.println("Idade: "+ e.getIdade());
-                System.out.printf("Salário base: R$%.2f\n", e.getSalarioBase());
-                System.out.printf("Salário:      R$%.2f\n", e.getSalario());
+                System.out.printf("Salário base: R$ %.2f\n", e.getSalarioBase());
+                System.out.printf("Salário:      R$ %.2f\n", e.getSalario());
                 System.out.println("N° contribuinte: "+ e.getContribuinte());
                 System.out.printf("iRS: %.1f%%\n", e.getIRS()*100);
                 vazio = false;
@@ -358,34 +421,45 @@ public class Empresa {
         if (vazio == true) {
             System.out.println("Empregado não encontrado!\n");
         }
+        System.out.println("(Pressione 0 para voltar.)");
+        opcao = sc.nextInt();
+        gerenciarPessoas();
     }
     
     public void removerEmpregado (){
         int numeroSeccao;
         boolean encontrado = false;
+        
         System.out.println("Digite o número de seccão do empregado: ");
         numeroSeccao = sc.nextInt();
         
         for (Empregado e: listaEmpregados){
             if (e.getNumeroSeccao() == numeroSeccao){
                 listaEmpregados.remove(e);
-                System.out.println("Empregado n° seccão "+ e.getContribuinte()+" removido.");
+                System.out.println("Empregado n° seccão "+ e.getNumeroSeccao()+" removido.");
                 encontrado = true;
                 break;
             }
         }
         if (encontrado == false)
             System.out.println("Empregado não encontrado!");
+        System.out.println("(Pressione 0 para voltar.)");
+        opcao = sc.nextInt();
+        gerenciarPessoas();
     }
     
     public void mostraAllEmpregados() {
         if (listaEmpregados.isEmpty()) 
             System.out.println("Não há empregados.");
         else{
+            System.out.println("-------------------------------------- LISTA DE EMPREGADOS --------------------------------------");
             for (Empregado e: listaEmpregados){
-                // System.out.println("< Nome: "+e.getNome()+" | Nº contribuinte: "+ e.getContribuinte() +" | Nº seccão: "+ e.getNumeroSeccao()+" | Idade: "+ e.getIdade() +" | Salário: "+ e.getSalario() +" | iRS: "+ e.getIRS() +" >");
-                System.out.printf("< Nome: %s| N° CPF: %d | N° secção: %d | Idade: %d | Salário: R$%.2f | IRS: %.1f%% >\n",e.getNome(),e.getContribuinte(),  e.getNumeroSeccao(), e.getIdade(), e.getSalario(), e.getIRS() * 100 );
+                System.out.printf("< Nome: %s| N° CPF: %d | N° secção: %d | Idade: %d | Salário: R$ %.2f | IRS: %.1f%% >\n",e.getNome(),e.getContribuinte(),  e.getNumeroSeccao(), e.getIdade(), e.getSalario(), e.getIRS() * 100 );
             }
+            System.out.println("-------------------------------------------------------------------------------------------------");
+        System.out.println("(Pressione 0 para voltar.)");
+        opcao = sc.nextInt();
+        gerenciarPessoas();
         }
     }
   
@@ -477,7 +551,7 @@ public class Empresa {
     public void gerenciarProdutos(){
         while (true){
             System.out.println("\n=== PRODUTOS ===");
-            System.out.println("Adicionar Produto[1] Listar Produto[2] Menu Inicial[0]");
+            System.out.println("Adicionar Produto[1] Remover Produto[2] Listar Produto[3] Menu Inicial[0]");
             System.out.println("Opcão: ");
             opcao = sc.nextInt();
             switch (opcao){
@@ -488,8 +562,12 @@ public class Empresa {
                 case 1:
                     inserirProduto();
                 break;
-
+                
                 case 2:
+                    removerProtudo();
+                break;
+                
+                case 3:
                     listarProduto();
                 break;
 
