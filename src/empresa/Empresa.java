@@ -10,6 +10,7 @@ public class Empresa {
     private int dataFundacao;
     private CodigoPostal cp = new CodigoPostal();
     private Pessoa p = new Pessoa();
+    private boolean online;
     
     private List <Produto> listaProdutos = new ArrayList<>();
     private List <Cliente> listaClientes = new ArrayList<>();
@@ -511,7 +512,8 @@ public class Empresa {
     }
     
     public void gerenciarProdutos(){
-        while (true){
+        online = true;
+        while (online){
             System.out.println("\n=== PRODUTOS ===");
             System.out.println("Adicionar Produto[1] \tRemover Produto[2] \tListar Produto[3] \tMenu Inicial[0]");
             System.out.println("Opcão: ");
@@ -519,6 +521,7 @@ public class Empresa {
             switch (opcao){
                 case 0:
                     menu();
+                    online = false;
                 break;
 
                 case 1:
@@ -539,7 +542,8 @@ public class Empresa {
     }
     
     public void gerenciarClientes(){
-        while (true){
+        online = true;
+        while (online){
             System.out.println("\n=== PESSOAS: CLIENTES ===");
             System.out.println("Buscar Cliente[1] \tInserir Cliente[2] \tRemover Cliente[3] \tListar Clientes[4] \tMenu Pessoas[0]");
             System.out.println("Opcão: ");
@@ -547,6 +551,7 @@ public class Empresa {
             switch (opcao){
                 case 0:
                     gerenciarPessoas();
+                    online = false;
                 break;
                     
                 case 1:
@@ -571,7 +576,8 @@ public class Empresa {
     }
     
     public void gerenciarFornecedores(){
-        while (true){
+        online = true;
+        while (online){
             System.out.println("\n=== PESSOAS: FORNECEDORES ===");
             System.out.println("Buscar Fornecedor[1] \tInserir Fonecedor[2] \tRemover Fornecedor[3] \tListar Fornecedor[4] \tMenu Pessoas[0]");
             System.out.println("Opcão: ");
@@ -579,6 +585,7 @@ public class Empresa {
             switch (opcao){
                 case 0:
                     gerenciarPessoas();
+                    online = false;
                 break;
                     
                 case 1:
@@ -603,7 +610,8 @@ public class Empresa {
     }
     
     public void gerenciarEmpregados(){
-        while (true){
+        online = true;
+        while (online){
             System.out.println("\n=== PESSOAS: EMPREGADOS ===");
             System.out.println("Buscar Empregado[1] \tInserir Empregado[2] \tRemover Empregado[3] \tListar Empregados[4] \tMenu Pessoas[0]");
             System.out.println("Opcão: ");
@@ -611,6 +619,7 @@ public class Empresa {
             switch (opcao){
                 case 0:
                     gerenciarPessoas();
+                    online = false;
                 break;
                     
                 case 1:
@@ -635,7 +644,8 @@ public class Empresa {
     }
     
     public void gerenciarPessoas(){
-        while (true){
+        online = true;
+        while (online){
             System.out.println("\n=== PESSOAS ===");
             System.out.println("Empregados[1] \tClientes[2] \tFornecedores[3] \tMenu Inicial[0]");
             System.out.println("Opcão: ");
@@ -643,6 +653,7 @@ public class Empresa {
             switch (opcao){
                 case 0:
                     menu();
+                    online = false;
                 break;
 
                 case 1:
@@ -663,7 +674,8 @@ public class Empresa {
     }
     
     public void menu(){
-        boolean online = true;
+        online = true;
+        
         while (online) {
             System.out.println("\n----- PROMETHEUS SYSTEM -----");
             System.out.println("Gerenciar Pessoas[1] \tGerenciar Produtos[2] \tInformações Empresa[3] \tSair[0]");
