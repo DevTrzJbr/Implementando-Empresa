@@ -1,9 +1,9 @@
 package empresa;
 
 public class Produto {
-    private String designacao;
-    private float precoVendaPublico;
-    private int stock;
+    private String designacao; // nome do produto
+    private float precoVendaPublico;  //preço
+    private int stock;  // número em estoque
         
     public Produto(){
         
