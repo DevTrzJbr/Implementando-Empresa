@@ -1,7 +1,7 @@
 package empresa;
 
 public class Empregado extends Pessoa {
-    private int numeroSeccao;  // CPF
+    private int numeroSeccao;  // Cadastro numerico da empresa
     private float salarioBase;  // Salário Bruto
     private float iRS;  // Taxa de imposto de Renda
     private float salario; // Salário Líquido
