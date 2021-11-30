@@ -61,14 +61,6 @@ public class Empresa {
         listaProdutos.add(new Produto("ROBO MEGATRON", 1000299.44f));
         listaProdutos.add(new Produto("TESLA MODEL XYZ", 349999.99f));
     }
-
-    public void socios() {
-        System.out.println("\t- André Melotti");
-        System.out.println("\t- André Prado");
-        System.out.println("\t- João V. Antunes");
-        System.out.println("\t- Pedro Lima");
-        System.out.println("\t- Yuri Marcos");
-    }
         
     // PRODUTOS
     public void inserirProduto() {
@@ -496,6 +488,14 @@ public class Empresa {
     }
    
     // SISTEMA
+    public void socios() {
+        System.out.println("\t- André Melotti");
+        System.out.println("\t- André Prado");
+        System.out.println("\t- João V. Antunes");
+        System.out.println("\t- Pedro Lima");
+        System.out.println("\t- Yuri Marcos");
+    }
+
     public void status() {
         System.out.println("\n------ STATUS ------");
         System.out.println("EMPRESA: "+ getNome());
