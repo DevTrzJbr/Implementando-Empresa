@@ -178,7 +178,7 @@ public class Empresa {
         while (true){
             System.out.println("Digite os 5 primeiros números do CEP: ");
             indicativo = sc.nextInt();
-            if(indicativo > 99999 && indicativo < 10000)
+            if(indicativo > 99999 || indicativo < 10000)
                 System.out.println("ERRO: O número deve possuir 5 dígitos.");
             else{
                 System.out.println("Digite os últimos 3 números do CEP: ");
